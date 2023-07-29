@@ -13,6 +13,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
 
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
+    val link = "https://www.themoviedb.org/t/p/w220_and_h330_face"
 
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return
@@ -37,12 +38,13 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
         private val binding = MovieLayoutBinding.bind(itemView)
         fun bind(data: Movie) {
             with(binding) {
-                Glide.with(itemView.context)
-                    .load(data.poster)
-                    .into(ivPoster)
                 tvTitle.text = data.title
                 tvDate.text = data.date
-                tvVote.text = data.voteAvg.toString()
+                val ratingBarValue = (data.voteAvg / 2).toFloat()
+                rbVote.rating = ratingBarValue
+                Glide.with(itemView.context)
+                    .load(link + data.poster)
+                    .into(ivPoster)
             }
         }
 
