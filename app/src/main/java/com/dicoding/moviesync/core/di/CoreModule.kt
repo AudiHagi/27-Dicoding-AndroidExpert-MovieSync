@@ -29,12 +29,25 @@ val networkModule = module {
     single {
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .connectTimeout(120, TimeUnit.SECONDS).readTimeout(120, TimeUnit.SECONDS).build()
+            .addInterceptor { chain ->
+                val originalRequest = chain.request()
+                val token =
+                    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ODNjYmFkYTlkM2I4MGE5MjAzZTkyODg5MTlhYjRjMiIsInN1YiI6IjY0YzI1MTc0ZGI0ZWQ2MDBlNGNhY2M3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uzA6SlTIP8Xrt6tEDUjdi0wktRwHHI6rRnt1lb4W9II"
+                val requestWithAuthorization = originalRequest.newBuilder()
+                    .header("Authorization", "Bearer $token")
+                    .build()
+                chain.proceed(requestWithAuthorization)
+            }
+            .connectTimeout(120, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS)
+            .build()
     }
     single {
         val retrofit =
-            Retrofit.Builder().baseUrl("").addConverterFactory(GsonConverterFactory.create())
-                .client(get()).build()
+            Retrofit.Builder().baseUrl("https://api.themoviedb.org/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(get())
+                .build()
         retrofit.create(ApiService::class.java)
     }
 }

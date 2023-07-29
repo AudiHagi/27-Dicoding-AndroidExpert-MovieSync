@@ -9,6 +9,10 @@ import com.dicoding.moviesync.core.di.repositoryModule
 import com.dicoding.moviesync.di.useCaseModule
 import com.dicoding.moviesync.di.viewModelModule
 import com.dicoding.moviesync.utils.DarkMode
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import java.util.Locale
 
 class MyApplication : Application() {
