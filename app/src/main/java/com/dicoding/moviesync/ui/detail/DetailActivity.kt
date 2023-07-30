@@ -2,6 +2,7 @@ package com.dicoding.moviesync.ui.detail
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
@@ -44,6 +45,7 @@ class DetailActivity : AppCompatActivity() {
             detailBind.tvReleasedate.text = detailMovie.date
             detailBind.tvDescription.text = detailMovie.overview
             val ratingBarValue = (detailMovie.voteAvg / 2).toFloat()
+            detailBind.tvRating.text = ratingBarValue.toString()
             detailBind.rbVote.rating = ratingBarValue
             Glide.with(this@DetailActivity)
                 .load(link + detailMovie.poster)
@@ -53,7 +55,10 @@ class DetailActivity : AppCompatActivity() {
             setStatusFavorite(statusFavorite)
             detailBind.fbFavorite.setOnClickListener {
                 statusFavorite = !statusFavorite
+                val message =
+                    if (statusFavorite) "Add ${detailMovie.title} To" else "Remove ${detailMovie.title} From"
                 detailViewModel.setFavoriteMovie(detailMovie, statusFavorite)
+                Toast.makeText(this, "$message Favorite", Toast.LENGTH_SHORT).show()
                 setStatusFavorite(statusFavorite)
             }
         }

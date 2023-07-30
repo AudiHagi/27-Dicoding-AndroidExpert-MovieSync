@@ -39,9 +39,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
         fun bind(data: Movie) {
             with(binding) {
                 tvTitle.text = data.title
-                tvDate.text = data.date
-                val ratingBarValue = (data.voteAvg / 2).toFloat()
-                rbVote.rating = ratingBarValue
+//                tvDate.text = data.date
+//                val ratingBarValue = (data.voteAvg / 2).toFloat()
+//                rbVote.rating = ratingBarValue
                 Glide.with(itemView.context)
                     .load(link + data.poster)
                     .into(ivPoster)

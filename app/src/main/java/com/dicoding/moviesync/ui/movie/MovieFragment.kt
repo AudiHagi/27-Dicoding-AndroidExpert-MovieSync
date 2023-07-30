@@ -36,7 +36,7 @@ class MovieFragment : Fragment() {
                 detailIntent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
                 startActivity(detailIntent)
             }
-            movieViewModel.movie.observe(viewLifecycleOwner, { movie ->
+            movieViewModel.movie.observe(viewLifecycleOwner) { movie ->
                 if (movie != null) {
                     when (movie) {
                         is Resource.Loading -> movieBind.pbLoading.visibility = View.VISIBLE
@@ -50,7 +50,7 @@ class MovieFragment : Fragment() {
                         }
                     }
                 }
-            })
+            }
             with(movieBind.rvListmovie) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)

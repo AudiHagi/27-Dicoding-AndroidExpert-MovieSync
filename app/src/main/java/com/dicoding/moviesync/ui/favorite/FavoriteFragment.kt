@@ -36,9 +36,16 @@ class FavoriteFragment : Fragment() {
                 startActivity(detailIntent)
             }
 
-            favoriteViewModel.favoriteMovie.observe(viewLifecycleOwner, { dataMovie ->
-                movieAdapter.setData(dataMovie)
-            })
+            favoriteViewModel.favoriteMovie.observe(viewLifecycleOwner) { dataMovie ->
+                if (dataMovie.isNotEmpty()) {
+                    favoriteBind.layoutEmpty.visibility = View.GONE
+                    movieAdapter.setData(dataMovie)
+                } else {
+                    favoriteBind.layoutEmpty.visibility = View.VISIBLE
+                    movieAdapter.setData(dataMovie)
+                }
+                favoriteBind.pbLoading.visibility = View.GONE
+            }
 
             with(favoriteBind.rvListmovie) {
                 layoutManager = LinearLayoutManager(context)
