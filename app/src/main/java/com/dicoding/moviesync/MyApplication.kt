@@ -3,11 +3,11 @@ package com.dicoding.moviesync
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
-import com.dicoding.moviesync.core.di.databaseModule
-import com.dicoding.moviesync.core.di.networkModule
-import com.dicoding.moviesync.core.di.repositoryModule
-import com.dicoding.moviesync.di.useCaseModule
-import com.dicoding.moviesync.di.viewModelModule
+import com.dicoding.moviesync.core.movie.di.movieDatabaseModule
+import com.dicoding.moviesync.core.movie.di.movieNetworkModule
+import com.dicoding.moviesync.core.movie.di.movieRepositoryModule
+import com.dicoding.moviesync.di.movieUseCaseModule
+import com.dicoding.moviesync.di.movieViewModelModule
 import com.dicoding.moviesync.utils.DarkMode
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -34,11 +34,11 @@ class MyApplication : Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
-                    databaseModule,
-                    networkModule,
-                    repositoryModule,
-                    useCaseModule,
-                    viewModelModule
+                    movieDatabaseModule,
+                    movieNetworkModule,
+                    movieRepositoryModule,
+                    movieUseCaseModule,
+                    movieViewModelModule
                 )
             )
         }

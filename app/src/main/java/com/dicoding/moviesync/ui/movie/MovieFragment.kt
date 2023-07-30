@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.moviesync.core.data.Resource
-import com.dicoding.moviesync.core.ui.MovieAdapter
+import com.dicoding.moviesync.core.movie.data.MovieResource
+import com.dicoding.moviesync.core.movie.ui.MovieAdapter
 import com.dicoding.moviesync.databinding.FragmentMovieBinding
 import com.dicoding.moviesync.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,13 +39,15 @@ class MovieFragment : Fragment() {
             movieViewModel.movie.observe(viewLifecycleOwner) { movie ->
                 if (movie != null) {
                     when (movie) {
-                        is Resource.Loading -> movieBind.pbLoading.visibility = View.VISIBLE
-                        is Resource.Success -> {
+                        is MovieResource.Loading -> movieBind.pbLoading.visibility =
+                            View.VISIBLE
+
+                        is MovieResource.Success -> {
                             movieBind.pbLoading.visibility = View.GONE
                             movieAdapter.setData(movie.data)
                         }
 
-                        is Resource.Error -> {
+                        is MovieResource.Error -> {
                             movieBind.pbLoading.visibility = View.GONE
                         }
                     }

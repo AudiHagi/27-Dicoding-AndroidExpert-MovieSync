@@ -4,6 +4,7 @@
     <string name="title_movie">Movie</string>
     <string name="title_favorite">Favorite</string>
     <string name="action_settings">Settings</string>
+    <string name="action_trending">Trending</string>
     <string name="pref_dark_title">Dark mode</string>
     <string name="pref_notify_name">Notification</string>
     <string name="pref_key_notify">key_notification</string>
@@ -23,4 +24,5 @@
     <string name="reminder_header">Reminder</string>
     <string name="display_header">Display</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_tv">TV Show</string>
 </resources>

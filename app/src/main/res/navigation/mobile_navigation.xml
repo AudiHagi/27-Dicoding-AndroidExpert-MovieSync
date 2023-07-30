@@ -14,4 +14,9 @@
         android:name="com.dicoding.moviesync.ui.favorite.FavoriteFragment"
         android:label="@string/title_favorite"
         tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/navigation_tv"
+        android:name="com.dicoding.moviesync.ui.tvshow.TvShowFragment"
+        android:label="@string/title_tv"
+        tools:layout="@layout/fragment_tv_show" />
 </navigation>

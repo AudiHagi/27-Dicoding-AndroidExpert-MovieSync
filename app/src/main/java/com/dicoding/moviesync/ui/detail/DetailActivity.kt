@@ -7,9 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.dicoding.moviesync.R
-import com.dicoding.moviesync.core.domain.model.Movie
+import com.dicoding.moviesync.core.movie.domain.model.Movie
 import com.dicoding.moviesync.databinding.ActivityDetailBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.DecimalFormat
 
 class DetailActivity : AppCompatActivity() {
 
@@ -26,6 +27,7 @@ class DetailActivity : AppCompatActivity() {
         detailBind = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(detailBind.root)
 
+        supportActionBar?.title = "Movie Details"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val detailMovie = intent.getParcelableExtra<Movie>(EXTRA_DATA)
@@ -45,7 +47,9 @@ class DetailActivity : AppCompatActivity() {
             detailBind.tvReleasedate.text = detailMovie.date
             detailBind.tvDescription.text = detailMovie.overview
             val ratingBarValue = (detailMovie.voteAvg / 2).toFloat()
-            detailBind.tvRating.text = ratingBarValue.toString()
+            val decimalFormat = DecimalFormat("#.#")
+            val formattedRating = decimalFormat.format(ratingBarValue)
+            detailBind.tvRating.text = formattedRating
             detailBind.rbVote.rating = ratingBarValue
             Glide.with(this@DetailActivity)
                 .load(link + detailMovie.poster)

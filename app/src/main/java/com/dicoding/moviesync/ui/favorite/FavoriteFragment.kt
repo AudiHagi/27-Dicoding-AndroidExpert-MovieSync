@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.moviesync.core.ui.MovieAdapter
+import com.dicoding.moviesync.core.movie.ui.MovieAdapter
 import com.dicoding.moviesync.databinding.FragmentFavoriteBinding
 import com.dicoding.moviesync.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel

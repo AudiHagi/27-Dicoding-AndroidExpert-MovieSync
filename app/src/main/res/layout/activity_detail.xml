@@ -58,29 +58,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_moviename" />
 
-    <!-- Rating Bar -->
-    <RatingBar
-        android:id="@+id/rb_vote"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_releasedate" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_releasedate">
 
-    <!-- TextView untuk menampilkan nilai rating -->
-    <TextView
-        android:id="@+id/tv_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0.0"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/rb_vote"
-        app:layout_constraintStart_toEndOf="@+id/rb_vote"
-        app:layout_constraintTop_toTopOf="@+id/rb_vote" />
+        <!-- Rating Bar -->
+        <RatingBar
+            android:id="@+id/rb_vote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.5" />
+
+        <!-- TextView untuk menampilkan nilai rating -->
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     <!-- Overview -->
     <TextView
@@ -88,14 +93,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:justificationMode="inter_word"
         android:text="Overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac purus id ex blandit luctus. Nulla facilisi. Donec at justo a eros auctor cursus. In hac habitasse platea dictumst. Nunc nec tristique mi."
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rb_vote" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fb_favorite"

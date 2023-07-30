@@ -1,9 +1,11 @@
 package com.dicoding.moviesync
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -45,6 +47,13 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> {
                 val settingIntent = Intent(this, SettingActivity::class.java)
                 startActivity(settingIntent)
+                true
+            }
+
+            R.id.action_trending -> {
+//                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+                val uri = Uri.parse("moviesync://trend")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
                 true
             }
 
