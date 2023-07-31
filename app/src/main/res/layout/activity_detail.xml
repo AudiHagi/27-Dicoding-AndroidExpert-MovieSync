@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MovieSync.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.MovieSync.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/pb_loading"
         android:layout_width="160dp"
@@ -19,87 +36,98 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading" />
 
-    <!-- Poster Film -->
-    <ImageView
-        android:id="@+id/iv_poster"
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/moviesync"
-        app:layout_constraintBottom_toTopOf="@+id/tv_moviename"
-        app:layout_constraintDimensionRatio="h,16:9"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Nama Film -->
-    <TextView
-        android:id="@+id/tv_moviename"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Movie Name"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_poster" />
+        <!-- Poster Film -->
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/moviesync"
+            app:layout_constraintBottom_toTopOf="@+id/tv_moviename"
+            app:layout_constraintDimensionRatio="h,16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Release Date -->
-    <TextView
-        android:id="@+id/tv_releasedate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Release Date: 2023-07-29"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_moviename" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:gravity="center_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_releasedate">
-
-        <!-- Rating Bar -->
-        <RatingBar
-            android:id="@+id/rb_vote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:stepSize="0.5" />
-
-        <!-- TextView untuk menampilkan nilai rating -->
+        <!-- Nama Film -->
         <TextView
-            android:id="@+id/tv_rating"
+            android:id="@+id/tv_moviename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.0"
-            android:textSize="16sp" />
+            android:layout_marginTop="16dp"
+            android:text="Movie Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_poster" />
 
-    </LinearLayout>
+        <!-- Release Date -->
+        <TextView
+            android:id="@+id/tv_releasedate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Release Date: 2023-07-29"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_moviename" />
 
-    <!-- Overview -->
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:justificationMode="inter_word"
-        android:text="Overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac purus id ex blandit luctus. Nulla facilisi. Donec at justo a eros auctor cursus. In hac habitasse platea dictumst. Nunc nec tristique mi."
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_releasedate">
+
+            <!-- Rating Bar -->
+            <RatingBar
+                android:id="@+id/rb_vote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="0.5" />
+
+            <!-- TextView untuk menampilkan nilai rating -->
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <!-- Overview -->
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:justificationMode="inter_word"
+            android:text="Overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac purus id ex blandit luctus. Nulla facilisi. Donec at justo a eros auctor cursus. In hac habitasse platea dictumst. Nunc nec tristique mi."
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fb_favorite"
@@ -107,6 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="40dp"
+        app:backgroundTint="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

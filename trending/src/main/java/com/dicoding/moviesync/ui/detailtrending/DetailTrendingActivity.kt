@@ -23,7 +23,10 @@ class DetailTrendingActivity : AppCompatActivity() {
         detailTrendBind = ActivityDetailTrendingBinding.inflate(layoutInflater)
         setContentView(detailTrendBind.root)
 
+        setSupportActionBar(detailTrendBind.toolbar)
+
         supportActionBar?.title = "Movie Details"
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val detailMovie = intent.getParcelableExtra<Movie>(DetailActivity.EXTRA_DATA)
@@ -38,7 +41,6 @@ class DetailTrendingActivity : AppCompatActivity() {
 
     private fun showDetailMovie(detailMovie: Movie?) {
         detailMovie?.let {
-            supportActionBar?.title = "Movie"
             detailTrendBind.tvMoviename.text = detailMovie.title
             detailTrendBind.tvReleasedate.text = detailMovie.date
             detailTrendBind.tvDescription.text = detailMovie.overview

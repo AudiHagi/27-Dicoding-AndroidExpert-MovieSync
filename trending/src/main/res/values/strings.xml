@@ -1,3 +1,4 @@
 <resources>
     <string name="action_trending">Trending</string>
+    <string name="actionbar_movie_details">Movie Details</string>
 </resources>

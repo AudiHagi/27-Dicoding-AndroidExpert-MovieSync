@@ -9,7 +9,6 @@ import com.dicoding.moviesync.core.movie.data.MovieResource
 import com.dicoding.moviesync.core.movie.ui.MovieAdapter
 import com.dicoding.moviesync.di.trendModule
 import com.dicoding.moviesync.tvshow.databinding.ActivityTrendingBinding
-import com.dicoding.moviesync.ui.detail.DetailActivity
 import com.dicoding.moviesync.ui.detailtrending.DetailTrendingActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -24,6 +23,8 @@ class TrendingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         trendBind = ActivityTrendingBinding.inflate(layoutInflater)
         setContentView(trendBind.root)
+
+        setSupportActionBar(trendBind.toolbar)
 
         loadKoinModules(trendModule)
 

@@ -27,7 +27,8 @@ class DetailActivity : AppCompatActivity() {
         detailBind = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(detailBind.root)
 
-        supportActionBar?.title = "Movie Details"
+        setSupportActionBar(detailBind.toolbar)
+        supportActionBar?.title = getString(R.string.actionbar_movie_details)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val detailMovie = intent.getParcelableExtra<Movie>(EXTRA_DATA)
@@ -42,12 +43,11 @@ class DetailActivity : AppCompatActivity() {
 
     private fun showDetailMovie(detailMovie: Movie?) {
         detailMovie?.let {
-            supportActionBar?.title = "Movie"
             detailBind.tvMoviename.text = detailMovie.title
             detailBind.tvReleasedate.text = detailMovie.date
             detailBind.tvDescription.text = detailMovie.overview
             val ratingBarValue = (detailMovie.voteAvg / 2).toFloat()
-            val decimalFormat = DecimalFormat("#.#")
+            val decimalFormat = DecimalFormat(getString(R.string.pattern_rating))
             val formattedRating = decimalFormat.format(ratingBarValue)
             detailBind.tvRating.text = formattedRating
             detailBind.rbVote.rating = ratingBarValue
@@ -60,7 +60,13 @@ class DetailActivity : AppCompatActivity() {
             detailBind.fbFavorite.setOnClickListener {
                 statusFavorite = !statusFavorite
                 val message =
-                    if (statusFavorite) "Add ${detailMovie.title} To" else "Remove ${detailMovie.title} From"
+                    if (statusFavorite) getString(
+                        R.string.add_to_fav,
+                        detailMovie.title
+                    ) else getString(
+                        R.string.remove_from_fav,
+                        detailMovie.title
+                    )
                 detailViewModel.setFavoriteMovie(detailMovie, statusFavorite)
                 Toast.makeText(this, "$message Favorite", Toast.LENGTH_SHORT).show()
                 setStatusFavorite(statusFavorite)
