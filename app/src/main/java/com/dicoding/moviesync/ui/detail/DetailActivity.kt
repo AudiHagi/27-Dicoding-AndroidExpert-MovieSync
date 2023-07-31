@@ -14,10 +14,6 @@ import java.text.DecimalFormat
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_DATA = "extra_data"
-    }
-
     private val detailViewModel: DetailViewModel by viewModel()
     private lateinit var detailBind: ActivityDetailBinding
     val link = "https://www.themoviedb.org/t/p/w220_and_h330_face"
@@ -90,6 +86,10 @@ class DetailActivity : AppCompatActivity() {
                 )
             )
         }
+    }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
     }
 
 }

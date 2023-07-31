@@ -17,7 +17,8 @@ class MovieFragment : Fragment() {
 
     private val movieViewModel: MovieViewModel by viewModel()
     private var _binding: FragmentMovieBinding? = null
-    private val movieBind get() = _binding!!
+    private val movieBind
+        get() = _binding ?: throw IllegalStateException("_binding should not be null")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

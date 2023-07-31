@@ -52,6 +52,7 @@
             android:layout_width="300dp"
             android:layout_height="400dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/cd_iv_poster"
             android:scaleType="centerCrop"
             android:src="@drawable/moviesync"
             app:layout_constraintBottom_toTopOf="@+id/tv_moviename"
@@ -66,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Movie Name"
+            android:text="@string/cd_tv_moviename"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Release Date: 2023-07-29"
+            android:text="@string/cd_tv_releasedate"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +110,7 @@
                 android:id="@+id/tv_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.0"
+                android:text="@string/cd_tv_rating"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -122,7 +123,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:justificationMode="inter_word"
-            android:text="Overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac purus id ex blandit luctus. Nulla facilisi. Donec at justo a eros auctor cursus. In hac habitasse platea dictumst. Nunc nec tristique mi."
+            android:text="@string/cd_tv_description"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

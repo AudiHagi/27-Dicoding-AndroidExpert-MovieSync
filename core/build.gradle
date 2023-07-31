@@ -11,11 +11,16 @@ android {
     namespace 'com.dicoding.moviesync.core'
     compileSdk 33
 
+    buildFeatures {
+        buildConfig true
+    }
+
     defaultConfig {
         minSdk 21
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        buildConfigField("String", "BASE_URL", BASE_URL)
+        buildConfigField("String", "API_KEY", API_KEY)
     }
 
     buildTypes {

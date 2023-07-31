@@ -13,6 +13,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import com.dicoding.moviesync.core.BuildConfig as config
 
 val movieDatabaseModule = module {
     factory { get<MovieDatabase>().movieDao() }
@@ -25,12 +26,17 @@ val movieDatabaseModule = module {
 
 val movieNetworkModule = module {
     single {
-        OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        val loggingInterceptor = if (config.DEBUG) {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+        }
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
             .addInterceptor { chain ->
                 val originalRequest = chain.request()
-                val token =
-                    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ODNjYmFkYTlkM2I4MGE5MjAzZTkyODg5MTlhYjRjMiIsInN1YiI6IjY0YzI1MTc0ZGI0ZWQ2MDBlNGNhY2M3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uzA6SlTIP8Xrt6tEDUjdi0wktRwHHI6rRnt1lb4W9II"
+                val token = config.API_KEY
                 val requestWithAuthorization = originalRequest.newBuilder()
                     .header("Authorization", "Bearer $token")
                     .build()
@@ -39,10 +45,12 @@ val movieNetworkModule = module {
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .build()
+
+        client
     }
     single {
         val retrofit =
-            Retrofit.Builder().baseUrl("https://api.themoviedb.org/")
+            Retrofit.Builder().baseUrl(config.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(get())
                 .build()
