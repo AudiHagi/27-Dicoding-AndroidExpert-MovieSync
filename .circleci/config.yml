@@ -1,28 +1,18 @@
 version: 2.1
-
-executors:
-  java17:
-    docker:
-      - image: 'cimg/openjdk:17.0'
-
+ 
 orbs:
   android: circleci/android@0.2.1
-
+ 
 jobs:
   build:
     executor: android/android
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 20.10.7
       - restore_cache:
           key: android-orb-v1-
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
-      - run:
-          name: Set Java 17
-          command: echo 'export JAVA_HOME=/usr/lib/jvm/zulu-17-amd64' >> $BASH_ENV
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
@@ -34,7 +24,7 @@ jobs:
       - run:
           name: Run Build
           command: ./gradlew build
-      - store_artifacts:
+      - store_artifacts: 
           path: app/build/reports
           destination: reports
       - run:
@@ -42,6 +32,6 @@ jobs:
           command: ./gradlew lint test
       - store_test_results:
           path: app/build/test-results
-      - store_artifacts:
+      - store_artifacts:  
           path: app/build/outputs/apk/debug/
           destination: artifact-file
