@@ -8,11 +8,16 @@ jobs:
     executor: android/android
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.7
       - restore_cache:
           key: android-orb-v1-
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
+      - run:
+          name: Set Java 17
+          command: echo 'export JAVA_HOME=/path/to/java17' >> $BASH_ENV
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
