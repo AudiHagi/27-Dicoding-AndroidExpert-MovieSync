@@ -1,7 +1,6 @@
 package com.dicoding.moviesync.ui.detail
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -16,25 +15,20 @@ class DetailActivity : AppCompatActivity() {
 
     private val detailViewModel: DetailViewModel by viewModel()
     private lateinit var detailBind: ActivityDetailBinding
-    val link = "https://www.themoviedb.org/t/p/w220_and_h330_face"
+    private val link = "https://image.tmdb.org/t/p/w500"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         detailBind = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(detailBind.root)
 
-        setSupportActionBar(detailBind.toolbar)
-        supportActionBar?.title = getString(R.string.actionbar_movie_details)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         val detailMovie = intent.getParcelableExtra<Movie>(EXTRA_DATA)
-        detailBind.pbLoading.visibility = View.GONE
+        //detailBind.pbLoading.visibility = View.GONE
         showDetailMovie(detailMovie)
-    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+        detailBind.ivBack.setOnClickListener{
+            onBackPressed()
+        }
     }
 
     private fun showDetailMovie(detailMovie: Movie?) {
@@ -46,14 +40,16 @@ class DetailActivity : AppCompatActivity() {
             val decimalFormat = DecimalFormat(getString(R.string.pattern_rating))
             val formattedRating = decimalFormat.format(ratingBarValue)
             detailBind.tvRating.text = formattedRating
-            detailBind.rbVote.rating = ratingBarValue
             Glide.with(this@DetailActivity)
                 .load(link + detailMovie.poster)
                 .into(detailBind.ivPoster)
+            Glide.with(this@DetailActivity)
+                .load(link + detailMovie.poster)
+                .into(detailBind.ivPosterBackground)
 
             var statusFavorite = detailMovie.isFavorite
             setStatusFavorite(statusFavorite)
-            detailBind.fbFavorite.setOnClickListener {
+            detailBind.ivFavorite.setOnClickListener {
                 statusFavorite = !statusFavorite
                 val message =
                     if (statusFavorite) getString(
@@ -72,14 +68,14 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setStatusFavorite(statusFavorite: Boolean) {
         if (statusFavorite) {
-            detailBind.fbFavorite.setImageDrawable(
+            detailBind.ivFavorite.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_favorite
                 )
             )
         } else {
-            detailBind.fbFavorite.setImageDrawable(
+            detailBind.ivFavorite.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_unfavorite

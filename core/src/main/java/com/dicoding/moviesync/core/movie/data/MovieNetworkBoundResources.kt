@@ -1,3 +1,5 @@
+@file:Suppress("EmptyMethod")
+
 package com.dicoding.moviesync.core.movie.data
 
 import com.dicoding.moviesync.core.movie.data.source.remote.network.MovieApiResponse
@@ -31,7 +33,7 @@ abstract class MovieNetworkBoundResources<ResultType, RequestType> {
                 is MovieApiResponse.Error -> {
                     onFetchFailed()
                     emit(
-                        MovieResource.Error<ResultType>(
+                        MovieResource.Error(
                             apiResponse.errorMessage
                         )
                     )

@@ -31,17 +31,16 @@
                 android:layout_width="300dp"
                 android:layout_height="400dp"
                 android:background="#7F6A6666"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/cd_iv_poster" />
 
             <!-- Judul Film -->
             <TextView
-                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="#7F6A6666"
                 android:textColor="#7F6A6666"
-                android:text="               "
                 android:textSize="18sp" />
 
         </LinearLayout>

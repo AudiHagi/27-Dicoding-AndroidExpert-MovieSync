@@ -1,7 +1,6 @@
 package com.dicoding.moviesync.ui.detailtrending
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.dicoding.moviesync.core.movie.domain.model.Movie
@@ -16,27 +15,20 @@ class DetailTrendingActivity : AppCompatActivity() {
     }
 
     private lateinit var detailTrendBind: ActivityDetailTrendingBinding
-    val link = "https://www.themoviedb.org/t/p/w220_and_h330_face"
+    private val link = "https://image.tmdb.org/t/p/w500"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         detailTrendBind = ActivityDetailTrendingBinding.inflate(layoutInflater)
         setContentView(detailTrendBind.root)
 
-        setSupportActionBar(detailTrendBind.toolbar)
-
-        supportActionBar?.title = "Movie Details"
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         val detailMovie = intent.getParcelableExtra<Movie>(DetailActivity.EXTRA_DATA)
-        detailTrendBind.pbLoading.visibility = View.GONE
+//        detailTrendBind.pbLoading.visibility = View.GONE
         showDetailMovie(detailMovie)
-    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+        detailTrendBind.ivBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun showDetailMovie(detailMovie: Movie?) {
@@ -48,10 +40,12 @@ class DetailTrendingActivity : AppCompatActivity() {
             val decimalFormat = DecimalFormat("#.#")
             val formattedRating = decimalFormat.format(ratingBarValue)
             detailTrendBind.tvRating.text = formattedRating
-            detailTrendBind.rbVote.rating = ratingBarValue
             Glide.with(this@DetailTrendingActivity)
                 .load(link + detailMovie.poster)
                 .into(detailTrendBind.ivPoster)
+            Glide.with(this@DetailTrendingActivity)
+                .load(link + detailMovie.poster)
+                .into(detailTrendBind.ivPosterBackground)
         }
     }
 

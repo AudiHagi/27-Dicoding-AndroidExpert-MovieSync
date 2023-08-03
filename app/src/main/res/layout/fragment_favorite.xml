@@ -31,7 +31,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/empty"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_gravity="center_horizontal"
@@ -44,7 +43,6 @@
                 app:lottie_rawRes="@raw/favorite" />
 
             <TextView
-                android:id="@+id/tv_nofavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cd_tv_nofavorite"

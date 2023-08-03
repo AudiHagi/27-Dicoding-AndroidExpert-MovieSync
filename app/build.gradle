@@ -25,6 +25,10 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
 
     compileOptions {
@@ -39,6 +43,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+
     dynamicFeatures = [':trending']
 }
 

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cd_iv_poster">Film Poster</string>
+    <string name="cd_tv_judul_film">Judul Film</string>
 </resources>

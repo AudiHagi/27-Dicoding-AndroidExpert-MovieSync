@@ -38,15 +38,4 @@ object TrendingDataMapper {
             )
         }
 
-    fun mapDomainToEntity(input: Movie) = TrendingEntity(
-        movieId = input.movieId,
-        title = input.title,
-        overview = input.overview,
-        poster = input.poster,
-        date = input.date,
-        voteAvg = input.voteAvg,
-        voteCount = input.voteCount,
-        isFavorite = input.isFavorite
-    )
-
 }

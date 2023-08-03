@@ -1,3 +1,5 @@
+@file:Suppress("SameReturnValue", "SameReturnValue", "SameReturnValue")
+
 package com.dicoding.moviesync.ui.setting
 
 import android.os.Bundle

@@ -13,7 +13,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
 
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
-    val link = "https://www.themoviedb.org/t/p/w220_and_h330_face"
+    val link = "https://image.tmdb.org/t/p/w500"
 
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return

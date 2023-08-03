@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface MovieApiService {
 
-    @GET("3/discover/movie")
+    @GET("3/movie/now_playing?language=en-US&page=1")
     suspend fun getList(): ListMovieResponse
 
     @GET("3/trending/movie/day")
