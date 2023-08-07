@@ -24,10 +24,10 @@
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_back"
+        android:backgroundTint="@color/black"
         android:contentDescription="@string/back"
+        android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,8 +35,9 @@
         android:id="@+id/iv_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
         android:layout_margin="16dp"
+        android:backgroundTint="@color/black"
+        android:contentDescription="@string/cd_fb_favorite"
         android:src="@drawable/ic_favorite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +105,8 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 app:layout_constraintStart_toStartOf="@+id/tv_moviename"
-                app:layout_constraintTop_toBottomOf="@+id/tv_releasedate">
+                app:layout_constraintTop_toBottomOf="@+id/tv_releasedate"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/iv_rating"

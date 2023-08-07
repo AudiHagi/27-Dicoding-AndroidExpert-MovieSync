@@ -26,7 +26,7 @@ class DetailActivity : AppCompatActivity() {
         //detailBind.pbLoading.visibility = View.GONE
         showDetailMovie(detailMovie)
 
-        detailBind.ivBack.setOnClickListener{
+        detailBind.ivBack.setOnClickListener {
             onBackPressed()
         }
     }

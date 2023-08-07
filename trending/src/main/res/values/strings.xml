@@ -2,4 +2,5 @@
     <string name="action_trending">Trending</string>
     <string name="cd_tv_overview">Overview</string>
     <string name="back">Back</string>
+    <string name="cd_detailtrend_back">Back</string>
 </resources>

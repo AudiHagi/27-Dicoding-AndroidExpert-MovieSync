@@ -31,8 +31,8 @@
                 android:layout_width="300dp"
                 android:layout_height="400dp"
                 android:background="#7F6A6666"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/cd_iv_poster" />
+                android:contentDescription="@string/cd_iv_poster"
+                android:scaleType="centerCrop" />
 
             <!-- Judul Film -->
             <TextView

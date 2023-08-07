@@ -26,10 +26,10 @@
         android:layout_height="60dp"
         android:layout_margin="16dp"
         android:backgroundTint="@color/black"
+        android:contentDescription="@string/cd_detailtrend_back"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Back" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -94,7 +94,8 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 app:layout_constraintStart_toStartOf="@+id/tv_moviename"
-                app:layout_constraintTop_toBottomOf="@+id/tv_releasedate">
+                app:layout_constraintTop_toBottomOf="@+id/tv_releasedate"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/iv_rating"

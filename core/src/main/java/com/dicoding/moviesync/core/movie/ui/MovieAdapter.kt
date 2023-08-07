@@ -3,6 +3,7 @@ package com.dicoding.moviesync.core.movie.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.moviesync.core.R
@@ -17,10 +18,29 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
 
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return
+
+        val diffResult = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
+            override fun getOldListSize(): Int = listData.size
+            override fun getNewListSize(): Int = newListData.size
+
+            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                val oldItem = listData[oldItemPosition]
+                val newItem = newListData[newItemPosition]
+                return oldItem.movieId == newItem.movieId
+            }
+
+            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                val oldItem = listData[oldItemPosition]
+                val newItem = newListData[newItemPosition]
+                return oldItem == newItem
+            }
+        })
+
         listData.clear()
         listData.addAll(newListData)
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ListViewHolder(
