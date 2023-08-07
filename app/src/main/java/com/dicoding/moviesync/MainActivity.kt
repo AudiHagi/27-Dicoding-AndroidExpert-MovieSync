@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.action_trending -> {
-                //Toast.makeText(this, getString(R.string.coming_soon), Toast.LENGTH_SHORT).show()
                 val uri = Uri.parse("moviesync://trend")
                 startActivity(Intent(Intent.ACTION_VIEW, uri))
                 true
