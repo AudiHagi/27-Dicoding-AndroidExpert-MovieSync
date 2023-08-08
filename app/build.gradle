@@ -9,6 +9,7 @@ apply from: '../shared_dependencies.gradle'
 
 android {
     namespace 'com.dicoding.moviesync'
+
     compileSdk 33
 
     defaultConfig {
