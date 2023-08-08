@@ -60,3 +60,7 @@
 -keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
   *** rewind();
 }
+
+-keep class **.Foo
+
+-keep class * extends **.Foo

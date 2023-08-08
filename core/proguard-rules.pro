@@ -141,3 +141,7 @@
 -keepclasseswithmembernames class * {
     native <methods>;
 }
+
+-keep class **.Foo
+
+-keep class * extends **.Foo
