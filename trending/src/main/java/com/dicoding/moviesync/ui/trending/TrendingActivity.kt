@@ -58,7 +58,7 @@ class TrendingActivity : AppCompatActivity() {
                 }
             }
         }
-        with(trendBind.rvListmovie) {
+        with(trendBind.rvListMovie) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = movieAdapter

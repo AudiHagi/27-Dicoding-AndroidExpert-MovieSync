@@ -33,7 +33,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun showDetailMovie(detailMovie: Movie?) {
         detailMovie?.let {
-            detailBind.tvMoviename.text = detailMovie.title
+            detailBind.tvMovieName.text = detailMovie.title
             detailBind.tvReleasedate.text = detailMovie.date
             detailBind.tvDescription.text = detailMovie.overview
             val ratingBarValue = (detailMovie.voteAvg / 2).toFloat()

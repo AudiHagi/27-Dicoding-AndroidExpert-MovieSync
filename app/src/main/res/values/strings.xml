@@ -24,13 +24,13 @@
     <string name="actionbar_settings">Settings</string>
     <string name="notification_turned_on">Notification Turned On</string>
     <string name="notification_turned_off">Notification Turned Off</string>
-    <string name="cd_iv_poster">Film Poster</string>
-    <string name="cd_tv_moviename">Movie Name</string>
-    <string name="cd_tv_releasedate">2023–07–29</string>
-    <string name="cd_tv_rating">0.0</string>
-    <string name="cd_tv_description">Overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac purus id ex blandit luctus. Nulla facilisi. Donec at justo a eros auctor cursus. In hac habitasse platea dictumst. Nunc nec tristique mi.</string>
-    <string name="cd_tv_nofavorite">Your favorite movies list is empty. To add movies to your favorites, click the heart icon on the movie\'s detail page.</string>
-    <string name="cd_tv_overview">Overview</string>
-    <string name="back">Back</string>
-    <string name="cd_fb_favorite">Favorite</string>
+    <string name="text_iv_poster">Film Poster</string>
+    <string name="text_tv_moviename">Movie Name</string>
+    <string name="text_tv_releasedate">2023–07–29</string>
+    <string name="text_tv_rating">0.0</string>
+    <string name="text_tv_description">Overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac purus id ex blandit luctus. Nulla facilisi. Donec at justo a eros auctor cursus. In hac habitasse platea dictumst. Nunc nec tristique mi.</string>
+    <string name="text_tv_no_favorite">Your favorite movies list is empty. To add movies to your favorites, click the heart icon on the movie\'s detail page.</string>
+    <string name="text_tv_overview">Overview</string>
+    <string name="cd_back_button">Back</string>
+    <string name="cd_favorite_button">Favorite</string>
 </resources>

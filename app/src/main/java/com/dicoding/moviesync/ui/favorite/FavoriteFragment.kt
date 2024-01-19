@@ -49,7 +49,7 @@ class FavoriteFragment : Fragment() {
                 favoriteBind.pbLoading.visibility = View.GONE
             }
 
-            with(favoriteBind.rvListmovie) {
+            with(favoriteBind.rvListMovie) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = movieAdapter

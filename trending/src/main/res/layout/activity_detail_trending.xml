@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.5"
-        android:contentDescription="@string/cd_iv_poster"
+        android:contentDescription="@string/text_iv_poster"
         android:scaleType="centerCrop"
         android:src="@drawable/moviesync"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
                 android:id="@+id/iv_poster"
                 android:layout_width="300dp"
                 android:layout_height="400dp"
-                android:contentDescription="@string/cd_iv_poster"
+                android:contentDescription="@string/text_iv_poster"
                 android:src="@drawable/moviesync"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,13 +63,13 @@
                 app:layout_constraintVertical_bias="0.3" />
 
             <TextView
-                android:id="@+id/tv_moviename"
+                android:id="@+id/tv_movie_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/cd_tv_moviename"
+                android:text="@string/text_tv_moviename"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -81,19 +81,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/cd_tv_releasedate"
+                android:text="@string/text_tv_releasedate"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_moviename"
-                app:layout_constraintTop_toBottomOf="@+id/tv_moviename" />
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_movie_name" />
 
             <LinearLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/linear_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
-                app:layout_constraintStart_toStartOf="@+id/tv_moviename"
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_releasedate"
                 tools:ignore="UseCompoundDrawables">
 
@@ -101,17 +101,17 @@
                     android:id="@+id/iv_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/cd_iv_poster"
+                    android:contentDescription="@string/text_iv_poster"
                     android:src="@drawable/ic_rating"
                     app:layout_constraintStart_toStartOf="@+id/iv_poster"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_moviename" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_movie_name" />
 
                 <TextView
                     android:id="@+id/tv_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="@string/cd_tv_rating"
+                    android:text="@string/text_tv_rating"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_rating"
@@ -125,12 +125,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/cd_tv_overview"
+                android:text="@string/text_tv_overview"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tv_moviename"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_name"
+                app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
 
             <TextView
                 android:id="@+id/tv_description"
@@ -140,11 +140,11 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:justificationMode="inter_word"
-                android:text="@string/cd_tv_description"
+                android:text="@string/text_tv_description"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_moviename"
+                app:layout_constraintStart_toStartOf="@+id/tv_movie_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_overview_title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
